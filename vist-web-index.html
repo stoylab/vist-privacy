@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vist — Reusable & Sharable Checklists</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: #FF6B35;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 24px;
+    }
+    h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
+    .tagline { font-size: 18px; color: #888; margin-bottom: 48px; }
+    .motto { font-size: 14px; color: #555; margin-bottom: 48px; letter-spacing: 1px; text-transform: uppercase; }
+    .buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-ios { background: #fff; color: #000; }
+    .btn-android { background: #FF6B35; color: #fff; }
+    .features {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin-bottom: 60px;
+    }
+    .feature {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 24px;
+      width: 200px;
+      text-align: center;
+    }
+    .feature-icon { font-size: 32px; margin-bottom: 12px; }
+    .feature-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .feature-desc { font-size: 13px; color: #666; line-height: 1.5; }
+    footer { font-size: 13px; color: #444; }
+    footer a { color: #666; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #FF6B35; }
+  </style>
+</head>
+<body>
+  <div class="logo">✓</div>
+  <h1>Vist</h1>
+  <p class="tagline">Reusable & Sharable Checklists</p>
+  <p class="motto">Check it. Share it. Repeat it.</p>
+
+  <div class="buttons">
+    <a href="https://testflight.apple.com/join/N9GxmPaE" class="btn btn-ios">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download for iOS
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.stoylab.vist" class="btn btn-android">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.19.96.07l13.2-7.62-2.82-2.82-11.34 10.37zM.5 1.05C.19 1.4 0 1.96 0 2.69v18.62c0 .73.19 1.29.51 1.64l.09.08 10.43-10.43v-.25L.59.97.5 1.05zM20.96 10.5l-2.83-1.63-3.17 3.17 3.17 3.17 2.84-1.64c.81-.47.81-1.23 0-1.67l-.01 0zM4.14.24L17.34 7.86l-2.82 2.82L3.18.31C3.5.19 3.84.21 4.14.24z"/></svg>
+      Download for Android
+    </a>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">📋</div>
+      <div class="feature-title">Create</div>
+      <div class="feature-desc">Build reusable checklists for any routine or task</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🌍</div>
+      <div class="feature-title">Share</div>
+      <div class="feature-desc">Share your lists with anyone, anywhere</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔄</div>
+      <div class="feature-title">Repeat</div>
+      <div class="feature-desc">Run any checklist as many times as you need</div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/delete-account">Delete Account</a>
+    <a href="mailto:tuncel.serhat@gmail.com">Contact</a>
+    <br><br>
+    © 2026 STOY Lab. All rights reserved.
+  </footer>
+</body>
+</html>
