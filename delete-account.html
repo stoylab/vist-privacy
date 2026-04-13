@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vist - Delete Account</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f2f2f7; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .card { background: white; border-radius: 16px; padding: 40px; max-width: 500px; width: 100%; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+    .logo-icon { width: 48px; height: 48px; background: #FF6B35; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+    .logo-text { font-size: 24px; font-weight: 700; color: #0f0f0f; }
+    h1 { font-size: 22px; font-weight: 700; color: #0f0f0f; margin-bottom: 12px; }
+    .warning { background: #fff3f3; border: 1px solid #ffcdd2; border-radius: 10px; padding: 16px; margin-bottom: 24px; color: #c62828; font-size: 14px; line-height: 1.6; }
+    .warning strong { display: block; margin-bottom: 6px; font-size: 15px; }
+    p { color: #555; font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
+    input, textarea, select { width: 100%; padding: 14px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 15px; color: #0f0f0f; margin-bottom: 4px; outline: none; font-family: inherit; transition: border-color 0.2s; }
+    input:focus, textarea:focus, select:focus { border-color: #FF6B35; }
+    textarea { resize: vertical; min-height: 100px; margin-bottom: 16px; }
+    select { margin-bottom: 16px; }
+    .error-msg { color: #c62828; font-size: 13px; margin-bottom: 12px; display: none; }
+    .btn { width: 100%; padding: 16px; background: #FF4444; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; font-family: inherit; margin-top: 8px; }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .success { display: none; text-align: center; padding: 20px 0; }
+    .success-icon { font-size: 48px; margin-bottom: 16px; }
+    .success h2 { font-size: 20px; font-weight: 700; color: #0f0f0f; margin-bottom: 8px; }
+    .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
+    .footer-note { font-size: 13px; color: #999; }
+    .footer-note a { color: #FF6B35; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <div class="logo-icon">✓</div>
+      <div class="logo-text">Vist</div>
+    </div>
+
+    <div id="form-section">
+      <h1>Delete Your Account</h1>
+      <div class="warning">
+        <strong>⚠️ This action is permanent</strong>
+        Deleting your account will permanently remove all your data including your profile, lists, execution history, comments, likes and saves. This cannot be undone.
+      </div>
+      <p>Fill in the form below. We will process your deletion request within 30 days.</p>
+
+      <label for="email">Email address *</label>
+      <input type="email" id="email" name="email" placeholder="The email you used to sign up" />
+      <div class="error-msg" id="email-error">Please enter a valid email address.</div>
+
+      <label for="username">Username (optional)</label>
+      <input type="text" id="username" name="username" placeholder="Your Vist username" />
+
+      <label for="reason">Reason for leaving (optional)</label>
+      <select id="reason" name="reason">
+        <option value="">Select a reason...</option>
+        <option value="not-useful">App is not useful for me</option>
+        <option value="privacy">Privacy concerns</option>
+        <option value="technical">Technical issues</option>
+        <option value="switching">Switching to another app</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="details">Additional details (optional)</label>
+      <textarea id="details" name="details" placeholder="Tell us more..."></textarea>
+
+      <button class="btn" id="submit-btn" onclick="submitForm()">Request Account Deletion</button>
+    </div>
+
+    <div id="success-section" class="success">
+      <div class="success-icon">✅</div>
+      <h2>Request received</h2>
+      <p>We'll process your deletion request within 30 days and send a confirmation to your email.</p>
+    </div>
+
+    <div class="divider"></div>
+    <p class="footer-note">
+      You can also delete your account from within the app: <strong>Profile → Delete Account</strong><br><br>
+      Questions? <a href="mailto:tuncel.serhat@gmail.com">tuncel.serhat@gmail.com</a>
+    </p>
+  </div>
+
+  <script>
+    async function submitForm() {
+      var email = document.getElementById('email').value.trim();
+      var emailError = document.getElementById('email-error');
+
+      // Validate email
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        emailError.style.display = 'block';
+        document.getElementById('email').focus();
+        return;
+      }
+      emailError.style.display = 'none';
+
+      var btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var username = document.getElementById('username').value.trim();
+      var reason = document.getElementById('reason').value;
+      var details = document.getElementById('details').value.trim();
+
+      var formData = new FormData();
+      formData.append('email', email);
+      formData.append('username', username || 'Not provided');
+      formData.append('reason', reason || 'Not provided');
+      formData.append('details', details || 'Not provided');
+      formData.append('_subject', 'Account Deletion Request - Vist');
+
+      try {
+        var response = await fetch('https://formspree.io/f/mlgaeold', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          document.getElementById('form-section').style.display = 'none';
+          document.getElementById('success-section').style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Request Account Deletion';
+          alert('Something went wrong. Please email us at tuncel.serhat@gmail.com');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'Request Account Deletion';
+        alert('Something went wrong. Please email us at tuncel.serhat@gmail.com');
+      }
+    }
+  </script>
+</body>
+</html>
