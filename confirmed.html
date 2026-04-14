@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vist — Email Confirmed</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #0f0f0f;
@@ -14,78 +13,36 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
-    }
-    .card {
-      background: #1a1a1a;
-      border-radius: 24px;
-      padding: 48px 40px;
-      max-width: 420px;
-      width: 100%;
       text-align: center;
+      padding: 20px;
     }
-    .icon { font-size: 64px; margin-bottom: 24px; }
-    h1 { font-size: 26px; font-weight: 700; margin-bottom: 12px; }
-    p { color: #888; font-size: 16px; line-height: 1.6; margin-bottom: 32px; }
-    .btn {
-      display: block;
-      background: #FF6B35;
-      color: #fff;
-      padding: 16px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 12px;
-      transition: opacity 0.2s;
-    }
-    .btn:hover { opacity: 0.85; }
-    .btn-secondary {
-      display: block;
-      color: #666;
-      font-size: 14px;
-      text-decoration: none;
-      margin-top: 16px;
-    }
-    .btn-secondary:hover { color: #FF6B35; }
+    .icon { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    p { color: #666; font-size: 15px; }
   </style>
-  <script>
-    // Try to open the app automatically
-    window.onload = function() {
-      // Try deep link first
-      var appLink = 'vist://confirmed';
-      window.location = appLink;
-    };
-  </script>
 </head>
 <body>
-  <div class="card">
-    <div class="icon">✅</div>
-    <h1>Email Confirmed!</h1>
-    <p>Your email has been successfully verified. You can now sign in to Vist.</p>
-    <a href="vist://confirmed" class="btn">Open Vist</a>
-    <a href="https://testflight.apple.com/join/N9GxmPaE" class="btn" style="background:#333;">
-      Download Vist for iOS
-    </a>
-    <a href="/" class="btn-secondary">Back to vist.stoylab.com</a>
+  <div>
+    <div class="icon">✓</div>
+    <h1>Opening Vist...</h1>
+    <p>If the app doesn't open, download it below.</p>
+    <br>
+    <a href="https://testflight.apple.com/join/N9GxmPaE" style="color:#FF6B35;">Download for iOS</a>
   </div>
-  <script>
-const supabase = window.supabase.createClient('YOUR_SUPABASE_URL', 'YOUR_ANON_KEY');
 
-async function confirm() {
-  const params = new URLSearchParams(window.location.search);
-  const token_hash = params.get('token_hash');
-  const type = params.get('type');
-  
-  if (token_hash && type) {
-    const { error } = await supabase.auth.verifyOtp({ token_hash, type });
-    if (!error) {
-      // Show success, offer to open app
-    }
-  }
-}
-confirm();
-  
-</script>
+  <script>
+    window.onload = function() {
+      window.location.href = 'vist://confirmed';
+      setTimeout(function() {
+        var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+        var isAndroid = /Android/.test(navigator.userAgent);
+        if (isIOS) {
+          window.location.href = 'https://testflight.apple.com/join/N9GxmPaE';
+        } else if (isAndroid) {
+          window.location.href = 'https://play.google.com/store/apps/details?id=com.stoylab.vist';
+        }
+      }, 3000);
+    };
+  </script>
 </body>
 </html>
