@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/list/:id", "destination": "/list/index.html" }
