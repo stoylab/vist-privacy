@@ -1,6 +1,6 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/list/:id", "destination": "/list/index.html" }
+  "routes": [
+    { "src": "/list/(.*)", "dest": "/list/index.html" }
   ]
 }
