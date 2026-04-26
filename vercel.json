@@ -3,6 +3,8 @@
     { "source": "/list/:path*", "destination": "/list/index.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/confirmed", "destination": "/confirmed.html" },
-    { "source": "/delete-account", "destination": "/delete-account.html" }
+    { "source": "/delete-account", "destination": "/delete-account.html" },
+    { "source": "/.well-known/apple-app-site-association", "destination": "/.well-known/apple-app-site-association" },
+    { "source": "/.well-known/assetlinks.json", "destination": "/.well-known/assetlinks.json" }
   ]
 }
