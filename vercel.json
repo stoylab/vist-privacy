@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/list/:path*", "destination": "/list/index.html" }
+    { "source": "/list/:path*", "destination": "/list/index.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/confirmed", "destination": "/confirmed.html" },
+    { "source": "/delete-account", "destination": "/delete-account.html" }
   ]
 }
