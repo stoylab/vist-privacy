@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.stoylab.vist",
+      "sha256_cert_fingerprints": ["20:10:FD:01:4F:60:1B:F3:D4:4E:BB:E0:EF:E2:D3:D6:FD:E7:DB:3B:3F:72:17:78:C2:98:A4:DC:A1:F6:FE:9B"]
+    }
+  }
+]
