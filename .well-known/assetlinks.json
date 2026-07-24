@@ -1,10 +1,27 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.stoylab.vist",
-      "sha256_cert_fingerprints": ["20:10:FD:01:4F:60:1B:F3:D4:4E:BB:E0:EF:E2:D3:D6:FD:E7:DB:3B:3F:72:17:78:C2:98:A4:DC:A1:F6:FE:9B"]
+      "sha256_cert_fingerprints": [
+        "20:10:FD:01:4F:60:1B:F3:D4:4E:BB:E0:EF:E2:D3:D6:FD:E7:DB:3B:3F:72:17:78:C2:98:A4:DC:A1:F6:FE:9B"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.stoylab.vistapp",
+      "sha256_cert_fingerprints": [
+        "E1:5F:A4:4F:F4:52:3F:46:97:FD:DC:15:A3:42:E2:D6:74:66:E8:D7:36:FC:75:D4:7B:FE:49:EF:A5:23:6E:2B"
+      ]
     }
   }
 ]
